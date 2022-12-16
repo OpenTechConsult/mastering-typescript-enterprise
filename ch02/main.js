@@ -155,3 +155,6 @@ function nullishCheck(a) {
 nullishCheck(1);
 nullishCheck(null);
 nullishCheck(undefined);
+function testNullOperand(a, b) {
+    let addResult = a + (b !== null && b !== void 0 ? b : 0);
+}

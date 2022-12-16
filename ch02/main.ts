@@ -192,3 +192,7 @@ function nullishCheck(a: number | undefined | null) {
 nullishCheck(1)
 nullishCheck(null)
 nullishCheck(undefined)
+
+function testNullOperand(a: number, b: number | null | undefined) {
+    let addResult = a + (b ?? 0);
+}
