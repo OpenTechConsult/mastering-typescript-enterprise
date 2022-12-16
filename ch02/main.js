@@ -122,7 +122,30 @@ function printNestedObject(obj) {
         console.log("name not found or undefined");
     }
 }
+function printNestedObjectOptionalChain(obj) {
+    var _a;
+    if ((_a = obj === null || obj === void 0 ? void 0 : obj.nestedProperty) === null || _a === void 0 ? void 0 : _a.name) {
+        console.log(`name = ${obj.nestedProperty.name}`);
+    }
+    else {
+        console.log("name not found or undefined");
+    }
+}
 printNestedObject(objectA);
 console.log("calling printNestedObject");
-printNestedObject({});
+printNestedObjectOptionalChain({});
 console.log("completed");
+printNestedObjectOptionalChain(undefined);
+printNestedObjectOptionalChain({
+    aProperty: "another property",
+});
+printNestedObjectOptionalChain({
+    nestedProperty: {
+        name: null
+    }
+});
+printNestedObjectOptionalChain({
+    nestedProperty: {
+        name: "nestedPropertyName"
+    }
+});

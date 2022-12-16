@@ -156,8 +156,31 @@ function printNestedObject(obj: any) {
     }
 }
 
+function printNestedObjectOptionalChain(obj: any) {
+    if (obj?.nestedProperty?.name) {
+        console.log(`name = ${obj.nestedProperty.name}`)
+    } else {
+        console.log("name not found or undefined")
+    }
+}
+
 printNestedObject(objectA)
 
 console.log("calling printNestedObject")
-printNestedObject({})
+printNestedObjectOptionalChain({})
 console.log("completed");
+
+printNestedObjectOptionalChain(undefined)
+printNestedObjectOptionalChain({
+    aProperty: "another property",
+})
+printNestedObjectOptionalChain({
+    nestedProperty: {
+        name: null
+    }
+})
+printNestedObjectOptionalChain({
+    nestedProperty: {
+        name: "nestedPropertyName"
+    }
+})
