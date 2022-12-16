@@ -115,7 +115,12 @@ var objectA = {
     }
 };
 function printNestedObject(obj) {
-    console.log("obj.nestedProperty.name = " + obj.nestedProperty.name);
+    if (obj != undefined && obj.nestedProperty != undefined && obj.nestedProperty.name) {
+        console.log(`name = ${obj.nestedProperty.name}`);
+    }
+    else {
+        console.log("name not found or undefined");
+    }
 }
 printNestedObject(objectA);
 console.log("calling printNestedObject");
