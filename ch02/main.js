@@ -109,9 +109,15 @@ printValues(null);
 const value = 10;
 const message = value > 10 ? "Value is larger than 10" : "value is 10 or less";
 console.log(message);
-// Optional chaining
 var objectA = {
     nestedProperty: {
         name: "nestedPropertyName"
     }
 };
+function printNestedObject(obj) {
+    console.log("obj.nestedProperty.name = " + obj.nestedProperty.name);
+}
+printNestedObject(objectA);
+console.log("calling printNestedObject");
+printNestedObject({});
+console.log("completed");
