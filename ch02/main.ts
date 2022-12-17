@@ -196,3 +196,16 @@ nullishCheck(undefined)
 function testNullOperand(a: number, b: number | null | undefined) {
     let addResult = a + (b ?? 0);
 }
+
+// console.log(`lValue = ${lValue}`)
+var lValue = 2;
+
+var globalString: string;
+
+setGlobalString("This string is set");
+
+console.log(`globalString = ${globalString}`)
+
+function setGlobalString(value: string) {
+    globalString = value;
+}

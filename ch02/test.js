@@ -13,6 +13,10 @@ function printNestedObject(obj) {
 
 printNestedObject(objectA)
 
-console.log("calling printNestedObject")
-printNestedObject({})
-console.log("completed")
+// console.log("calling printNestedObject")
+// printNestedObject({})
+// console.log("completed")
+
+console.log("aValue = " + aValue)
+var aValue = 1
+console.log("aValue = " + aValue)
