@@ -20,3 +20,24 @@ printNestedObject(objectA)
 console.log("aValue = " + aValue)
 var aValue = 1
 console.log("aValue = " + aValue)
+
+function testArguments() {
+    for (var i = 0; i < arguments.length; i++) {
+        console.log("arguments[" + i + "] = " + arguments[i])
+    }
+}
+
+testArguments(1, 2)
+testArguments("first", "second", "third")
+
+// callback functions in js
+var myCallback = function (text) {
+    console.log("my callback called with " + text)
+}
+
+function withCallbackArg(message, callbackfn) {
+    console.log('withCallback called, message : ' + message)
+    callbackfn(message + "from withCallback")
+}
+
+withCallbackArg("initial text", myCallback)

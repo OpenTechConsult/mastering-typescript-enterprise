@@ -160,9 +160,170 @@ function testNullOperand(a, b) {
 }
 // console.log(`lValue = ${lValue}`)
 var lValue = 2;
+// definite assignment assertion
 var globalString;
 setGlobalString("This string is set");
 console.log(`globalString = ${globalString}`);
 function setGlobalString(value) {
     globalString = value;
 }
+// object
+let structuredObject = {
+    name: "myObject",
+    properties: {
+        id: 1,
+        type: "AnObject"
+    }
+};
+function printObjectType(a) {
+    console.log(`a: ${JSON.stringify(a)}`);
+}
+printObjectType(structuredObject);
+// printObjectType("this is a string")
+let a = "test";
+let aNumber = 2;
+aNumber = a;
+let u = "an unknown";
+u = 1;
+let aNumber2;
+aNumber2 = u;
+// never
+// function alwaysThrows(): never {
+//     throw new Error("this will always throw")
+//     return -1
+// }
+// alwaysThrows()
+// NEVER AND SWITCH
+var AnEnum;
+(function (AnEnum) {
+    AnEnum[AnEnum["FIRST"] = 0] = "FIRST";
+    AnEnum[AnEnum["SECOND"] = 1] = "SECOND";
+})(AnEnum || (AnEnum = {}));
+function getEnumValue(enumValue) {
+    switch (enumValue) {
+        case AnEnum.FIRST:
+            return "First Case";
+        case AnEnum.SECOND:
+            return "Second Case";
+    }
+    let returnValue = enumValue;
+    return returnValue;
+}
+// object spread
+let firstObj = { id: 1, name: "firstObj" };
+let secondObj = Object.assign({}, firstObj);
+console.log(`secondObj: ${JSON.stringify(secondObj)}`);
+// combine multiple objects together
+let nameObj = { name: "nameObj name" };
+let idObj = { id: 1 };
+let obj3 = Object.assign(Object.assign({}, nameObj), idObj);
+console.log(`obj3 = ${JSON.stringify(obj3)}`);
+// object precedence
+let objPrec1 = { id: 1, name: "obj1 name" };
+let objPrec2 = { id: 1001, desc: "obj2 description" };
+let objPrec3 = Object.assign(Object.assign({}, objPrec1), objPrec2);
+console.log(`objPrec3: ${JSON.stringify(objPrec3, null, 4)}`);
+// spread with arrays
+let firstArray = [1, 2, 3];
+let secondArray = [3, 4, 5];
+let thirdArray = [...firstArray, ...secondArray];
+console.log(`third array: ${thirdArray}`);
+// spread syntax can appear in any order
+let objArray1 = [
+    { id: 1, name: "first element" }
+];
+let objArray2 = [
+    { id: 2, name: "second element" }
+];
+let objArray3 = [
+    ...objArray1,
+    { id: 3, name: "third element" },
+    ...objArray2
+];
+console.log(`objArray3: ${JSON.stringify(objArray3, null, 4)}`);
+// Tuples
+let tuple1;
+tuple1 = ["test", true];
+console.log(tuple1);
+// tuple1 = ["test"]
+// tuple destructuring
+// using simple array syntax
+console.log(`tuple1[0]: ${tuple1[0]}`);
+console.log(`tuple1[1]: ${tuple1[1]}`);
+// 2nd way of destructuring a tuple
+let [tupleString, tupleBoolean] = tuple1;
+console.log(`tupleString = ${tupleString}`);
+console.log(`tupleBoolean = ${tupleBoolean}`);
+// optional tuple element
+let tupleOptional;
+tupleOptional = ["test", true];
+tupleOptional = ["test"];
+console.log(`tupleOptional[0] : ${tupleOptional[0]}`);
+console.log(`tupleOptional[1] : ${tupleOptional[1]}`);
+// tuple and spread syntax
+let tupleRest;
+tupleRest = [1];
+tupleRest = [1, "string1"];
+tupleRest = [1, "string1", "string2"];
+tupleRest = [1, "string1", "string2", "string3"];
+// object destructuring
+let complexObject = {
+    aNum: 1,
+    bStr: "name",
+    cBool: true
+};
+let { aNum, bStr, cBool } = complexObject;
+console.log(`aNum: ${aNum}`);
+console.log(`bStr: ${bStr}`);
+console.log(`cBool: ${cBool}`);
+console.log();
+// rename variables during destructuring
+let { aNum: objId, bStr: objName, cBool: isValid } = complexObject;
+console.log(`objId: ${objId}`);
+console.log(`objName: ${objName}`);
+console.log(`isValid: ${isValid}`);
+// functions
+// optional parameters
+function concatValues(a, b) {
+    console.log(`a + b = ${a + b}`);
+}
+concatValues("first", "second");
+concatValues("third");
+// default parameters
+function concatWithDefault(a, b = "default") {
+    console.log(`a + b = ${a + b}`);
+}
+console.log();
+concatWithDefault("first", "second");
+concatWithDefault("third");
+// Rest parameters
+function testArguments(...args) {
+    for (let i in args) {
+        console.log(`args[${i}] = ${args[i]}`);
+    }
+}
+testArguments("1");
+testArguments(10, 20);
+// function signatures as parameters
+function myCallback(text) {
+    console.log(`myCallback called with : ${text}`);
+}
+function withCallbackArg(message, callbackFn) {
+    console.log(`withCallbackArg called, message : ${message}`);
+    callbackFn(`${message} from withCallbackArg`);
+}
+withCallbackArg("initial text", myCallback);
+function add(a, b) {
+    return a + b;
+}
+add("first", "second");
+add(1, 2);
+function withLiteral(input) {
+    console.log(`called with : ${input}`);
+}
+withLiteral("one");
+withLiteral("two");
+withLiteral("three");
+withLiteral(65535);
+withLiteral("four");
+withLiteral(2);
