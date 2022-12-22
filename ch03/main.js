@@ -33,3 +33,11 @@ function getProperty(key, value) {
 getProperty("id", { id: 1, name: "firstName" });
 getProperty("name", { id: 2, name: "secondName" });
 // getProperty("telephone", { id: 3, name: "thirdName"})
+// classes
+class SimpleClass {
+    print() {
+        console.log(`SimpleClass.print() called`);
+    }
+}
+let mySimpleClass = new SimpleClass();
+mySimpleClass.print();
