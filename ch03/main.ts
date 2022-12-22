@@ -83,9 +83,10 @@ getProperty("name", { id: 2, name: "secondName"})
 class SimpleClass {
     id: number | undefined;
     print(): void {
-        console.log(`SimpleClass.print() called`);
+        console.log(`SimpleClass.id = ${this.id}`);
         
     }
 }
 let mySimpleClass = new SimpleClass();
+mySimpleClass.id = 2020;
 mySimpleClass.print();
