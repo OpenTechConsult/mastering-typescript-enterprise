@@ -42,3 +42,27 @@ class SimpleClass {
 let mySimpleClass = new SimpleClass();
 mySimpleClass.id = 2020;
 mySimpleClass.print();
+class ClassA {
+    print() {
+        console.log(`ClassA.print() called`);
+    }
+}
+class ClassB {
+    print() {
+        console.log(`ClassB.print() called`);
+    }
+}
+class ClassC {
+    print() {
+        console.log(`ClassC.print() called`);
+    }
+}
+function printClass(a) {
+    a.print();
+}
+let classA = new ClassA();
+let classB = new ClassB();
+let classC = new ClassC();
+printClass(classA);
+printClass(classB);
+printClass(classC);

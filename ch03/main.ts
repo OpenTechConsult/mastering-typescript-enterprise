@@ -90,3 +90,37 @@ class SimpleClass {
 let mySimpleClass = new SimpleClass();
 mySimpleClass.id = 2020;
 mySimpleClass.print();
+
+class ClassA implements IPrint {
+    print(): void {
+        console.log(`ClassA.print() called`)
+    }
+}
+
+class ClassB implements IPrint {
+    print(): void {
+        console.log(`ClassB.print() called`)
+    }
+}
+
+class ClassC {
+    print(): void {
+        console.log(`ClassC.print() called`)
+    }
+}
+
+interface IPrint {
+    print(): void;
+}
+
+function printClass(a: IPrint) {
+    a.print();
+}
+
+let classA = new ClassA();
+let classB = new ClassB();
+let classC = new ClassC();
+
+printClass(classA);
+printClass(classB);
+printClass(classC);
